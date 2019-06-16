@@ -6,5 +6,19 @@
 </head>
 <body>
 <h1>My Recipes!</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}">recipe ID</td>
+        <td th:text="${recipe.description}">recipe name</td>
+        <td><a href="#" th:href="@{'/recipe/show/'+${recipe.id}}">View</a></td>
+    </tr>
+</table>
 </body>
 </html>
