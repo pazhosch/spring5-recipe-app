@@ -28,8 +28,8 @@ public class IndexController {
     public String getIndexPage(Model model) {
         Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
         Optional<UnitOfMeasure> unitOfMeasuerOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
-        System.out.println("Cat: "+categoryOptional.get( ).getId());
-        System.out.println("Unit: "+unitOfMeasuerOptional.get().getId());
+        System.out.println("Cat: "+(categoryOptional.isPresent() ? categoryOptional.get().getId() : "null"));
+        System.out.println("Unit: "+(unitOfMeasuerOptional.isPresent() ? unitOfMeasuerOptional.get().getId() : "null"));
 
         model.addAttribute("recipes",recipeRepository.findAll());
         return "index";
